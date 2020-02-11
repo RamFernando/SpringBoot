@@ -2,6 +2,7 @@ package com.ramesha.training.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -30,9 +31,10 @@ public class Employee {
 	@OneToMany(targetEntity = Telephone.class,mappedBy = "employee",cascade = CascadeType.ALL)
 	List<Telephone> telephones;
 	
-	@ManyToMany
-	@JoinTable(joinColumns = {@JoinColumn(name = "pid", referencedColumnName = "id")}, inverseJoinColumns = {@JoinColumn(name = "eid", referencedColumnName = "id")})
-	List<Project> projects;
+	@ManyToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinTable(joinColumns = { @JoinColumn(name = "employee_id", referencedColumnName = "id") }, inverseJoinColumns = {
+			@JoinColumn(name = "project_id", referencedColumnName = "id") })
+	Set<Project> projects;
 	
 	public int getId() {
 		return id;
@@ -75,10 +77,10 @@ public class Employee {
 	public void setTelephones(List<Telephone> telephones) {
 		this.telephones = telephones;
 	}
-	public List<Project> getProjects() {
+	public Set<Project> getProjects() {
 		return projects;
 	}
-	public void setProjects(List<Project> projects) {
+	public void setProjects(Set<Project> projects) {
 		this.projects = projects;
 	}
 	

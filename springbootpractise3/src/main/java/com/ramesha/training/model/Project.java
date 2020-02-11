@@ -1,6 +1,7 @@
 package com.ramesha.training.model;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,8 +20,7 @@ public class Project {
 	String name;
 	
 	@ManyToMany(mappedBy = "projects")
-	@JsonIgnore
-	List<Employee> employee;
+	Set<Employee> employee;
 
 	public int getId() {
 		return id;
@@ -38,11 +38,11 @@ public class Project {
 		this.name = name;
 	}
 
-	public List<Employee> getEmployee() {
+	public Set<Employee> getEmployee() {
 		return employee;
 	}
 
-	public void setEmployee(List<Employee> employee) {
+	public void setEmployee(Set<Employee> employee) {
 		this.employee = employee;
 	}
 	
