@@ -16,8 +16,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
+import org.hibernate.annotations.Subselect;
 
 @Entity
 public class Employee {
@@ -34,7 +37,8 @@ public class Employee {
 	@OneToMany(targetEntity = Telephone.class,mappedBy = "employee",cascade = CascadeType.ALL)
 	List<Telephone> telephones;
 	
-	@LazyCollection(LazyCollectionOption.FALSE)
+//	@LazyCollection(LazyCollectionOption.FALSE)
+	@Fetch(FetchMode.SUBSELECT)
 	@ManyToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinTable(joinColumns = { @JoinColumn(name = "employee_id", referencedColumnName = "id") }, inverseJoinColumns = {
 			@JoinColumn(name = "project_id", referencedColumnName = "id") })
