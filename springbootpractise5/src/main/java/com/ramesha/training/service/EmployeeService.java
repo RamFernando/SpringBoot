@@ -8,5 +8,5 @@ import com.ramesha.training.model.Employee;
 public interface EmployeeService {
 	Employee saveEmployee(Employee employee);
 	Optional<Employee> findById(Integer id);
-	List<Employee> findAll();
+	Employee fetchAll(int id);
 }

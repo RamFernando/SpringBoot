@@ -15,9 +15,12 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
+
+import com.ramesha.training.commonmodel.Allocation;
 
 @Entity
 public class Employee {
@@ -39,6 +42,9 @@ public class Employee {
 	@JoinTable(joinColumns = { @JoinColumn(name = "employee_id", referencedColumnName = "id") }, inverseJoinColumns = {
 			@JoinColumn(name = "project_id", referencedColumnName = "id") })
 	List<Project> projects;
+	
+	@Transient
+	Allocation[] allocations;
 	
 	public int getId() {
 		return id;
@@ -87,5 +93,10 @@ public class Employee {
 	public void setProjects(List<Project> projects) {
 		this.projects = projects;
 	}
-	
+	public Allocation[] getAllocations() {
+		return allocations;
+	}
+	public void setAllocations(Allocation[] allocations) {
+		this.allocations = allocations;
+	}
 }
