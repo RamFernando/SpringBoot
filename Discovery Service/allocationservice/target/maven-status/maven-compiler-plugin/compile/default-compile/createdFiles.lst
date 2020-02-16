@@ -1,0 +1,6 @@
+com\training\allocation\repository\AllocationRepository.class
+com\training\allocation\service\EmployeeService.class
+com\training\allocation\model\Allocation.class
+com\training\allocation\service\EmployeeServiceImpl.class
+com\training\allocation\Application.class
+com\training\allocation\controller\AllocationController.class

@@ -1,0 +1,10 @@
+com\ramesha\training\commonmodel\Allocation.class
+com\ramesha\training\service\EmployeeServiceImpl.class
+com\ramesha\training\model\Project.class
+com\ramesha\training\model\Employee.class
+com\ramesha\training\repository\EmployeeRepository.class
+com\ramesha\training\Application.class
+com\ramesha\training\model\Address.class
+com\ramesha\training\model\Telephone.class
+com\ramesha\training\controller\EmployeeController.class
+com\ramesha\training\service\EmployeeService.class
